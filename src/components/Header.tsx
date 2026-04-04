@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useTheme } from "@/context/ThemeContext";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -13,12 +14,13 @@ const navLinks = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { totalItems } = useCart();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-neutral-200">
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold uppercase tracking-widest text-neutral-900 transition-colors hover:text-accent">
+        <Link href="/" className="text-xl font-bold uppercase tracking-widest text-neutral-900 dark:text-white transition-colors hover:text-accent">
           Towers
         </Link>
 
@@ -28,7 +30,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium uppercase tracking-wide text-neutral-600 transition-colors hover:text-accent"
+              className="text-sm font-medium uppercase tracking-wide text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent"
             >
               {link.label}
             </Link>
@@ -37,10 +39,51 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-4">
+          {/* Theme toggle */}
+          <button
+            aria-label="Toggle dark mode"
+            onClick={toggleTheme}
+            className="text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent"
+          >
+            {theme === "dark" ? (
+              /* Sun icon — shown in dark mode */
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            ) : (
+              /* Moon icon — shown in light mode */
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"
+                />
+              </svg>
+            )}
+          </button>
+
           {/* Search */}
           <button
             aria-label="Search"
-            className="text-neutral-600 transition-colors hover:text-accent"
+            className="text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +105,7 @@ export default function Header() {
           <Link
             href="/cart"
             aria-label="Cart"
-            className="relative text-neutral-600 transition-colors hover:text-accent"
+            className="relative text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +131,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             aria-label="Open menu"
-            className="text-neutral-600 transition-colors hover:text-accent md:hidden"
+            className="text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent md:hidden"
             onClick={() => setMobileOpen(true)}
           >
             <svg
@@ -115,17 +158,17 @@ export default function Header() {
 
       {/* Mobile slide-in menu */}
       <div
-        className={`fixed right-0 top-0 z-50 flex h-full w-72 flex-col bg-white shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed right-0 top-0 z-50 flex h-full w-72 flex-col bg-white dark:bg-neutral-900 shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-4">
-          <span className="text-lg font-bold uppercase tracking-widest text-neutral-900">
+        <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-700 px-4 py-4">
+          <span className="text-lg font-bold uppercase tracking-widest text-neutral-900 dark:text-white">
             Towers
           </span>
           <button
             aria-label="Close menu"
-            className="text-neutral-600 transition-colors hover:text-accent"
+            className="text-neutral-600 dark:text-neutral-300 transition-colors hover:text-accent"
             onClick={() => setMobileOpen(false)}
           >
             <svg
@@ -147,7 +190,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wide text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-accent"
+              className="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wide text-neutral-700 dark:text-neutral-300 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-accent"
             >
               {link.label}
             </Link>

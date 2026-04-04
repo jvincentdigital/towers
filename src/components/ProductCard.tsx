@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
 
   return (
-    <div className="group border border-neutral-200 rounded-lg overflow-hidden bg-white hover:shadow-lg transition-shadow">
+    <div className="group border border-neutral-200 dark:border-neutral-700 rounded-lg overflow-hidden bg-white dark:bg-neutral-900 hover:shadow-lg dark:hover:shadow-neutral-800/50 transition-shadow">
       <Link href={`/product/${product.id}`} className="block relative aspect-square overflow-hidden">
         <Image
           src={product.image}
@@ -23,17 +23,17 @@ export default function ProductCard({ product }: ProductCardProps) {
         />
       </Link>
       <div className="p-4">
-        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
+        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
           {product.brand}
         </p>
         <Link
           href={`/product/${product.id}`}
-          className="block text-neutral-900 font-semibold hover:text-accent transition-colors mb-2 leading-tight"
+          className="block text-neutral-900 dark:text-white font-semibold hover:text-accent transition-colors mb-2 leading-tight"
         >
           {product.name}
         </Link>
         <div className="flex items-center justify-between">
-          <span className="text-lg font-bold text-neutral-900">
+          <span className="text-lg font-bold text-neutral-900 dark:text-white">
             ${product.price.toFixed(2)}
           </span>
           <button

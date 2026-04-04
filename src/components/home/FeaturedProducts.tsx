@@ -7,7 +7,7 @@ export default function FeaturedProducts() {
 
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-tight text-neutral-900 dark:text-white">
         FEATURED PRODUCTS
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -18,7 +18,7 @@ export default function FeaturedProducts() {
       <div className="text-center mt-10">
         <Link
           href="/shop"
-          className="inline-block border-2 border-neutral-900 hover:border-accent hover:text-accent text-neutral-900 font-semibold px-8 py-3 rounded transition-colors"
+          className="inline-block border-2 border-neutral-900 dark:border-neutral-300 hover:border-accent dark:hover:border-accent hover:text-accent text-neutral-900 dark:text-neutral-300 font-semibold px-8 py-3 rounded transition-colors"
         >
           View All Products
         </Link>

@@ -94,11 +94,11 @@ function ShopContent() {
     <div className="space-y-8">
       {/* Categories */}
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3">Category</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-neutral-900 dark:text-white">Category</h3>
         <ul className="space-y-2">
           {categories.map((cat) => (
             <li key={cat.slug}>
-              <label className="flex items-center gap-2 cursor-pointer text-sm">
+              <label className="flex items-center gap-2 cursor-pointer text-sm text-neutral-700 dark:text-neutral-300">
                 <input
                   type="checkbox"
                   checked={selectedCategories.includes(cat.slug)}
@@ -114,11 +114,11 @@ function ShopContent() {
 
       {/* Brands */}
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3">Brand</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-neutral-900 dark:text-white">Brand</h3>
         <ul className="space-y-2">
           {brands.map((brand) => (
             <li key={brand}>
-              <label className="flex items-center gap-2 cursor-pointer text-sm">
+              <label className="flex items-center gap-2 cursor-pointer text-sm text-neutral-700 dark:text-neutral-300">
                 <input
                   type="checkbox"
                   checked={selectedBrands.includes(brand)}
@@ -134,7 +134,7 @@ function ShopContent() {
 
       {/* Price Range */}
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3">Price</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-neutral-900 dark:text-white">Price</h3>
         <div className="flex flex-col gap-2">
           {priceRanges.map((range) => (
             <button
@@ -145,7 +145,7 @@ function ShopContent() {
               className={`text-left text-sm px-3 py-2 border rounded transition-colors ${
                 selectedPriceRange === range.key
                   ? "bg-accent text-white border-accent"
-                  : "border-neutral-300 hover:border-accent"
+                  : "border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:border-accent"
               }`}
             >
               {range.label}
@@ -160,13 +160,13 @@ function ShopContent() {
     <main className="max-w-7xl mx-auto px-4 py-10">
       {/* Header row */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">SHOP ALL</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">SHOP ALL</h1>
 
         <div className="flex items-center gap-4">
           {/* Mobile filter toggle */}
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden flex items-center gap-1.5 text-sm font-medium"
+            className="lg:hidden flex items-center gap-1.5 text-sm font-medium text-neutral-700 dark:text-neutral-300"
           >
             <SlidersHorizontal className="h-4 w-4" />
             Filters
@@ -176,7 +176,7 @@ function ShopContent() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortOption)}
-            className="text-sm border border-neutral-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-1 focus:ring-accent"
+            className="text-sm border border-neutral-300 dark:border-neutral-600 rounded px-3 py-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-accent"
           >
             <option value="featured">Featured</option>
             <option value="price-asc">Price: Low → High</option>
@@ -197,10 +197,10 @@ function ShopContent() {
               className="absolute inset-0 bg-black/40"
               onClick={() => setSidebarOpen(false)}
             />
-            <div className="relative z-10 w-72 max-w-full bg-white h-full overflow-y-auto p-6">
+            <div className="relative z-10 w-72 max-w-full bg-white dark:bg-neutral-900 h-full overflow-y-auto p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold">Filters</h2>
-                <button onClick={() => setSidebarOpen(false)}>
+                <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Filters</h2>
+                <button onClick={() => setSidebarOpen(false)} className="text-neutral-600 dark:text-neutral-300">
                   <X className="h-5 w-5" />
                 </button>
               </div>
@@ -211,7 +211,7 @@ function ShopContent() {
 
         {/* Product grid */}
         <div className="flex-1">
-          <p className="text-sm text-neutral-500 mb-4">
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
             {filtered.length} product{filtered.length !== 1 && "s"}
           </p>
           {filtered.length === 0 ? (

@@ -5,7 +5,7 @@ import { categories } from "@/data/products";
 export default function FeaturedCategories() {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-tight text-neutral-900 dark:text-white">
         SHOP BY CATEGORY
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

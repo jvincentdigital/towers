@@ -19,11 +19,11 @@ export default function AboutPage() {
 
       {/* Brand Story */}
       <section className="mx-auto max-w-4xl px-6 py-20 md:py-28">
-        <h2 className="mb-8 text-3xl font-bold uppercase tracking-wide text-zinc-900 md:text-4xl">
+        <h2 className="mb-8 text-3xl font-bold uppercase tracking-wide text-zinc-900 dark:text-white md:text-4xl">
           Born in Puerto Rico, Built for the Track
         </h2>
 
-        <div className="space-y-6 text-lg leading-relaxed text-zinc-600">
+        <div className="space-y-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           <p>
             Towers was founded by a crew of riders who grew up tearing through
             the trails and tracks of Puerto Rico. We know what it feels like to
@@ -49,10 +49,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Statement */}
-      <section className="bg-zinc-50 py-16">
+      <section className="bg-zinc-50 dark:bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6">
           <blockquote className="border-l-4 border-accent pl-8">
-            <p className="text-2xl font-bold leading-snug text-zinc-900 md:text-3xl">
+            <p className="text-2xl font-bold leading-snug text-zinc-900 dark:text-white md:text-3xl">
               Our mission is to equip every rider in the Caribbean with
               world-class parts, honest expertise, and a community that rides
               together.
@@ -63,13 +63,13 @@ export default function AboutPage() {
 
       {/* Values Grid */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <h2 className="mb-14 text-center text-3xl font-bold uppercase tracking-wide text-zinc-900">
+        <h2 className="mb-14 text-center text-3xl font-bold uppercase tracking-wide text-zinc-900 dark:text-white">
           What We Stand For
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Authenticity */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-8 text-center transition hover:shadow-lg">
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-neutral-900 p-8 text-center transition hover:shadow-lg dark:hover:shadow-neutral-800/50">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 text-accent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,17 +86,17 @@ export default function AboutPage() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900">
+            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900 dark:text-white">
               Authenticity
             </h3>
-            <p className="text-sm leading-relaxed text-zinc-500">
+            <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
               We only carry genuine, rider-tested parts. No knockoffs, no
               shortcuts — just the real deal.
             </p>
           </div>
 
           {/* Performance */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-8 text-center transition hover:shadow-lg">
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-neutral-900 p-8 text-center transition hover:shadow-lg dark:hover:shadow-neutral-800/50">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 text-accent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,17 +113,17 @@ export default function AboutPage() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900">
+            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900 dark:text-white">
               Performance
             </h3>
-            <p className="text-sm leading-relaxed text-zinc-500">
+            <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
               Every product is chosen for durability and peak output. We ride
               hard, and our inventory reflects that.
             </p>
           </div>
 
           {/* Community */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-8 text-center transition hover:shadow-lg">
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-neutral-900 p-8 text-center transition hover:shadow-lg dark:hover:shadow-neutral-800/50">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 text-accent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -140,17 +140,17 @@ export default function AboutPage() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900">
+            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900 dark:text-white">
               Community
             </h3>
-            <p className="text-sm leading-relaxed text-zinc-500">
+            <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
               From race days to trail rides, we invest in the people who make the
               Caribbean moto scene thrive.
             </p>
           </div>
 
           {/* Quality */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-8 text-center transition hover:shadow-lg">
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-neutral-900 p-8 text-center transition hover:shadow-lg dark:hover:shadow-neutral-800/50">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 text-accent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,10 +167,10 @@ export default function AboutPage() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900">
+            <h3 className="mb-2 text-lg font-bold uppercase text-zinc-900 dark:text-white">
               Quality
             </h3>
-            <p className="text-sm leading-relaxed text-zinc-500">
+            <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
               Premium brands, rigorous standards. We stand behind every part we
               sell — period.
             </p>
