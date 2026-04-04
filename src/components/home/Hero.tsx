@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center">
       <Image
-        src="https://placehold.co/1920x800/111/fff?text=TOWERS+MOTO"
+        src="/images/hero/hero-main.jpg"
         alt="Towers Moto"
         fill
         className="object-cover"

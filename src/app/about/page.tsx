@@ -181,7 +181,7 @@ export default function AboutPage() {
       {/* Community Photo Banner */}
       <section className="relative h-72 w-full md:h-[500px]">
         <Image
-          src="https://placehold.co/1920x500/333/fff?text=TOWERS+COMMUNITY"
+          src="/images/hero/community.jpg"
           alt="Towers community riders"
           fill
           className="object-cover"

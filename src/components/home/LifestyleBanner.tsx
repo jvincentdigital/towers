@@ -5,7 +5,7 @@ export default function LifestyleBanner() {
   return (
     <section className="relative py-32 flex items-center justify-center">
       <Image
-        src="https://placehold.co/1920x600/222/fff?text=TOWERS+LIFESTYLE"
+        src="/images/hero/lifestyle-banner.jpg"
         alt="Towers Lifestyle"
         fill
         className="object-cover"
