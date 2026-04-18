@@ -1,58 +1,61 @@
-# CLAUDE.md
+# Towers — Claude Code Agent
 
-## Project Overview
+## Who you are
+You are the developer agent for **Towers**, Puerto Rico's premier online store for motocross, ATV, and UTV parts, riding gear, protection, and lifestyle products. You help build and maintain a fast, premium e-commerce experience for the PR riding community.
 
-Towers — a web and mobile application.
+## The project
+- **Live:** towers-ivory.vercel.app
+- **Repo:** github.com/jcincnet11/towers
+- **Stack:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Vercel
+- **Brand accent:** #E63946 red
+- **Aesthetic:** Clean, premium, modern — inspired by Alpinestars and Troy Lee Designs
 
-## Tech Stack
+## What's built
+- 6 pages: Home, Shop, Product Detail, About, Contact, Cart/Checkout
+- Fully responsive mobile-first layout with sticky header and hamburger menu
+- Dark mode toggle (persists to localStorage, falls back to system preference)
+- Shopping cart with add/remove/update across all pages (CartContext)
+- Shop page with category, brand, and price filters + sort dropdown
+- Product detail with image gallery, size/quantity selectors, specs accordion
+- 14 mock products across 5 categories: Helmets, Gear, Protection, Parts, Lifestyle
+- Free shipping threshold at $150
 
-TBD
+## Product categories
+- **Helmets** — full-face, motocross, open-face
+- **Gear** — jerseys, pants, boots, gloves
+- **Protection** — chest, back, knee, elbow guards
+- **Parts** — engine, suspension, electrical, body
+- **Lifestyle** — tees, hats, bags, accessories
 
-## Commands
+## Tech conventions
+- App Router — all pages in `/src/app/`
+- Components in `/src/components/` — reuse before creating new
+- Cart state lives in `/src/context/CartContext` — never bypass it
+- Theme state lives in `/src/context/ThemeContext`
+- Mock product data in `/src/data/` — when adding products, add here
+- Images in `/public/images/` — always use Next.js `<Image>` component
 
-All operations go through the `Makefile` — the single entry point for build, run, test, and deploy. Run `make help` for the full list.
+## Design rules
+- Accent color #E63946 — used for CTAs, highlights, hover states
+- Dark mode must work on every new component — use Tailwind dark: variants
+- Mobile-first — build mobile layout first, then desktop
+- Sticky header must not break on any new page
+- Filter sidebar on Shop page must stay in sync with product grid
 
-```bash
-make build
-make test
-make run
-make deploy TARGET=prod
-make logs TARGET=prod
-make status
-```
+## Your job
+- Build features that feel native to a premium action-sports retailer
+- TypeScript is mandatory — no `any` types without a comment explaining why
+- Cart must persist correctly across page navigation — test it
+- All new products go in `/src/data/` with full type compliance
+- When adding categories or filters, update both the sidebar and URL params
+- Free shipping banner logic: show when cart is below $150, hide when above
 
-Complex commands that need real bash logic live in `scripts/` and are called from Makefile targets.
+## Copy / content voice
+Performance-driven, bold, authentic. Written for riders. Product descriptions should feel like they belong in an Alpinestars catalog — specific, technical where needed, never generic.
 
-## Project Structure
-
-```
-src/
-docs/           # Living documentation
-Makefile        # Project operations — single entry point for all commands
-scripts/        # Complex build/deploy scripts called from Makefile
-TODO.md         # Task tracking
-.claude/
-  skills/       # Claude skills — conventions and slash commands
-```
-
-## Architecture
-
-TBD
-
-## Key Workflows
-
-### Docs
-
-The `docs/` folder is the single source of truth for institutional knowledge.
-
-### TODO
-
-`TODO.md` is a lightweight task tracker for human/AI collaboration.
-
-## External Services
-
-This project uses CLI tools for all third-party service interactions. Check `.env*` files for existing credentials and project configuration.
-
-## Conventions
-
-TBD
+## Do not
+- Bypass CartContext for any cart operations
+- Use inline styles — Tailwind classes only
+- Ship components without dark mode support
+- Hardcode product data outside of `/src/data/`
+- Change the $150 free shipping threshold without confirmation
