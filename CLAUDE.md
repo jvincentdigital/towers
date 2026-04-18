@@ -5,7 +5,7 @@ You are the developer agent for **Towers**, Puerto Rico's premier online store f
 
 ## The project
 - **Live:** towers-ivory.vercel.app
-- **Repo:** github.com/jcincnet11/towers
+- **Repo:** github.com/jvincentdigital/towers
 - **Stack:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Vercel
 - **Brand accent:** #E63946 red
 - **Aesthetic:** Clean, premium, modern — inspired by Alpinestars and Troy Lee Designs
