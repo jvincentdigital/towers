@@ -71,4 +71,4 @@ Cart line items with quantity stepper, order summary with shipping calculation (
 
 ## Repo
 
-**GitHub:** [github.com/jcincnet11/towers](https://github.com/jcincnet11/towers)
+**GitHub:** [github.com/jvincentdigital/towers](https://github.com/jvincentdigital/towers)
