@@ -16,6 +16,19 @@ export const metadata: Metadata = {
   title: "Towers | Motocross, ATV & UTV Parts",
   description:
     "Puerto Rico's premier motocross, ATV, and UTV parts shop. Premium gear, accessories, and components for every rider.",
+  openGraph: {
+    title: "Towers | Motocross, ATV & UTV Parts",
+    description:
+      "Puerto Rico's premier motocross, ATV, and UTV parts shop. Premium gear, accessories, and components for every rider.",
+    type: "website",
+    siteName: "Towers",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Towers | Motocross, ATV & UTV Parts",
+    description:
+      "Puerto Rico's premier motocross, ATV, and UTV parts shop. Premium gear, accessories, and components for every rider.",
+  },
 };
 
 export default function RootLayout({
