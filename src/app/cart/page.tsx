@@ -1,34 +1,15 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } =
+  const { items, removeItem, updateQuantity, totalItems, totalPrice } =
     useCart();
-
-  const [checkout, setCheckout] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    street: "",
-    city: "",
-    state: "",
-    zip: "",
-  });
 
   const shipping = totalPrice >= 150 ? 0 : 9.99;
   const orderTotal = totalPrice + shipping;
-
-  function handlePlaceOrder(e: FormEvent) {
-    e.preventDefault();
-    alert(
-      "Order placed! Thank you for shopping with Towers. You'll receive a confirmation email shortly."
-    );
-    clearCart();
-  }
 
   /* ───── Empty Cart ───── */
   if (items.length === 0) {
@@ -203,173 +184,32 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* ── Checkout Form ── */}
-        <form onSubmit={handlePlaceOrder} className="mt-16 max-w-3xl">
+        {/* ── Demo Notice (checkout is not active) ── */}
+        <div className="mt-16 max-w-3xl">
           <h2 className="mb-8 text-2xl font-bold uppercase tracking-wide text-zinc-900 dark:text-white">
             Checkout
           </h2>
 
-          {/* Personal Info */}
-          <fieldset className="mb-10">
-            <legend className="mb-4 text-sm font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-              Personal Information
-            </legend>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div>
-                <label
-                  htmlFor="co-name"
-                  className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                >
-                  Full Name
-                </label>
-                <input
-                  id="co-name"
-                  type="text"
-                  required
-                  value={checkout.name}
-                  onChange={(e) =>
-                    setCheckout({ ...checkout, name: e.target.value })
-                  }
-                  className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="co-email"
-                  className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                >
-                  Email
-                </label>
-                <input
-                  id="co-email"
-                  type="email"
-                  required
-                  value={checkout.email}
-                  onChange={(e) =>
-                    setCheckout({ ...checkout, email: e.target.value })
-                  }
-                  className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="co-phone"
-                  className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                >
-                  Phone
-                </label>
-                <input
-                  id="co-phone"
-                  type="tel"
-                  required
-                  value={checkout.phone}
-                  onChange={(e) =>
-                    setCheckout({ ...checkout, phone: e.target.value })
-                  }
-                  className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                />
-              </div>
-            </div>
-          </fieldset>
-
-          {/* Shipping Address */}
-          <fieldset className="mb-10">
-            <legend className="mb-4 text-sm font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-              Shipping Address
-            </legend>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="co-street"
-                  className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                >
-                  Street Address
-                </label>
-                <input
-                  id="co-street"
-                  type="text"
-                  required
-                  value={checkout.street}
-                  onChange={(e) =>
-                    setCheckout({ ...checkout, street: e.target.value })
-                  }
-                  className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="co-city"
-                  className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                >
-                  City
-                </label>
-                <input
-                  id="co-city"
-                  type="text"
-                  required
-                  value={checkout.city}
-                  onChange={(e) =>
-                    setCheckout({ ...checkout, city: e.target.value })
-                  }
-                  className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="co-state"
-                    className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                  >
-                    State
-                  </label>
-                  <input
-                    id="co-state"
-                    type="text"
-                    required
-                    value={checkout.state}
-                    onChange={(e) =>
-                      setCheckout({ ...checkout, state: e.target.value })
-                    }
-                    className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="co-zip"
-                    className="mb-1 block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
-                  >
-                    ZIP
-                  </label>
-                  <input
-                    id="co-zip"
-                    type="text"
-                    required
-                    value={checkout.zip}
-                    onChange={(e) =>
-                      setCheckout({ ...checkout, zip: e.target.value })
-                    }
-                    className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-neutral-800 px-4 py-2.5 text-zinc-900 dark:text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
-                  />
-                </div>
-              </div>
-            </div>
-          </fieldset>
-
-          {/* Payment Placeholder */}
-          <div className="mb-10 rounded-lg border-2 border-dashed border-zinc-300 dark:border-zinc-600 bg-zinc-50 dark:bg-neutral-800 px-6 py-8 text-center">
-            <p className="text-sm font-semibold uppercase tracking-wide text-zinc-400">
-              Payment integration coming soon
+          <div className="rounded-xl border-2 border-dashed border-accent/40 bg-accent/5 px-6 py-10 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[.2em] text-accent">
+              Demo Store
             </p>
+            <h3 className="mb-3 text-xl font-bold text-zinc-900 dark:text-white">
+              Checkout is not active
+            </h3>
+            <p className="mx-auto max-w-md text-sm text-zinc-600 dark:text-zinc-400">
+              Towers is a demonstration storefront. Online ordering is not
+              available and no orders can be placed here. Please do not enter any
+              personal or payment information.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-block rounded-lg bg-accent px-8 py-3 text-sm font-bold uppercase tracking-[.15em] text-white transition hover:bg-accent/90"
+            >
+              Contact Us
+            </Link>
           </div>
-
-          {/* Place Order */}
-          <button
-            type="submit"
-            className="w-full rounded-lg bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[.15em] text-white transition hover:bg-accent/90 sm:w-auto"
-          >
-            Place Order
-          </button>
-        </form>
+        </div>
       </section>
     </main>
   );
